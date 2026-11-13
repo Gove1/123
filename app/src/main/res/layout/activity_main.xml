@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            app:title="스마트 일정 관리"
+            app:titleTextColor="#FFFFFF"/>
+
+        <!-- 14장 & 15장 연계: 배터리 상태 및 백그라운드 서비스 제어 바 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#2C3E50"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <!-- 14장 배터리 상태 아이콘 및 텍스트 -->
+            <ImageView
+                android:id="@+id/batteryIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ac"
+                android:contentDescription="배터리 상태"/>
+
+            <TextView
+                android:id="@+id/batteryStatusText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:text="배터리 정보 확인 중..."/>
+
+            <!-- 15장 백그라운드 관리 서비스 토글 버튼 -->
+            <Button
+                android:id="@+id/btnToggleService"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="11sp"
+                android:text="백그라운드 서비스 ON"
+                android:backgroundTint="#27AE60"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- 15장 연계: 백그라운드 음악 재생 제어 영역 (선택적) -->
+        <LinearLayout
+            android:id="@+id/musicControlLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#1E2A38"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#E0E0E0"
+                android:textSize="12sp"
+                android:text="[15장 음악] 알림 배경음악 제어"/>
+
+            <ImageView
+                android:id="@+id/btnPlayMusic"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_play"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="재생"/>
+
+            <ImageView
+                android:id="@+id/btnStopMusic"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_stop"
+                android:contentDescription="정지"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- 13장 할 일 목록 리사이클러뷰 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="80dp"/>
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="등록된 일정이 없습니다.\n+ 버튼을 눌러 새 일정을 등록하세요."
+            android:textAlignment="center"
+            android:textColor="#888888"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+        <!-- 13장 일정 추가 플로팅 버튼 -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/main_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="24dp"
+            android:text="새 일정 등록"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/primary"
+            app:icon="@android:drawable/ic_input_add"
+            app:iconTint="#FFFFFF"/>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

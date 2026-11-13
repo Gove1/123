@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">스마트 일정 관리</string>
+    <string name="title_todo_list">스마트 일정 목록</string>
+    <string name="title_add_schedule">일정 등록</string>
+    <string name="save">저장</string>
+    <string name="add_schedule">일정 추가</string>
+    <string name="select_date">날짜 선택</string>
+    <string name="select_time">시간 선택</string>
+    <string name="attach_image">사진 첨부</string>
+    <string name="gallery">갤러리</string>
+    <string name="camera">카메라</string>
+    <string name="service_start">백그라운드 서비스 시작</string>
+    <string name="service_stop">백그라운드 서비스 중지</string>
+    <string name="channel_name">스마트 일정 알림 채널</string>
+    <string name="channel_desc">일정 마감 시간 도달 시 사용자에게 알림을 제공합니다.</string>
+</resources>
